@@ -1,0 +1,35 @@
+        <!-- Begin of toolbar -->
+<div >
+    <div class="wu-toolbar-button">
+        <a href="javascript:void(0);" class="easyui-linkbutton" iconCls="icon-add" onclick="openAdd_dept()" plain="true">添加</a>
+        <a href="javascript:void(0);" class="easyui-linkbutton" iconCls="icon-edit" onclick="openEdit_dept()" plain="true">修改</a>
+        <a href="javascript:void(0);" class="easyui-linkbutton" iconCls="icon-remove" onclick="remove_dept()" plain="true">删除</a>
+        <a href="javascript:void(0);" class="easyui-linkbutton" iconCls="icon-reload" onclick="reload_dept()" plain="true">刷新</a>
+    </div>
+</div>
+<!-- End of toolbar -->
+<table id="lkh_dept" style="width:auto;"></table>
+
+<!--弹出窗口-begin-->
+<div id="dept-dialog" class="easyui-dialog" data-options="closed:true,iconCls:'icon-save'" style="width:400px; padding:10px;">
+    <form id="dept-form" method="post">
+        <table>
+            <input name="dept_id" type="hidden">
+            <tr>
+                <td width="60" align="right">部门名称:</td>
+                <td><input type="text" name="dept_name" class="wu-text" /></td>
+            </tr>
+            <tr>
+                <td align="right">显示顺序:</td>
+                <td><input type="text" name="dept_order" class="wu-text" /></td>
+            </tr>
+            <tr>
+                <td align="right">上级菜单:</td>
+                <td><input type="text" name="parent_dept_id" id="parent_dept_id" class="wu-text" /></td>
+            </tr>
+        </table>
+    </form>
+</div>
+<!--弹出窗口-begin-->
+
+<script type="text/javascript" src="/system/dept.js"></script>

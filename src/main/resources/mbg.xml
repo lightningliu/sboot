@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <!--环境配置-->
+    <context id="mycontext" targetRuntime="MyBatis3">
+    <!--是否生成注释-->
+        <commentGenerator>
+            <!--不生成注释-->
+            <property name="suppressAllComents" value="true"></property>
+        </commentGenerator>
+        <!--JDBC连接信息-->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                          connectionURL="jdbc:mysql://localhost:3306/sboot"
+                          userId="root"
+                          password="123456">
+        </jdbcConnection>
+        <javaTypeResolver>
+            <!--不适用BigDecimal,如果设置为true Mybatis中所有的数字会被设置为BigDecimal（大数字）
+            false的时候，则根据数据库字段类型动态生成对应的Integer、Long、Double、Float-->
+            <property name="forceBigDecimals" value="false"></property>
+        </javaTypeResolver>
+        <!--实体类生成的设置-->
+        <javaModelGenerator targetPackage="com.lkh.sboot.entity" targetProject="F:\IdeaProjects\sboot\src\main\java">
+            <!--根据包名自动生成对应的目录-->
+            <property name="enableSubPackages" value="true"></property>
+        </javaModelGenerator>
+        <!--生成mapper XML-->
+        <sqlMapGenerator targetPackage="mapper" targetProject="F:\IdeaProjects\sboot\src\main\resources\mybatis">
+            <property name="enableSubPackages" value="true"></property>
+        </sqlMapGenerator>
+        <!--Mapper接口的设置 XMLMAPPER,代表生成xml 文件-->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.lkh.sboot.mapper" targetProject="F:\IdeaProjects\sboot\src\main\java">
+            <property name="enableSubPackages" value="true"></property>
+        </javaClientGenerator>
+        <!--生成Mapper-->
+        <table tableName="sys_user" domainObjectName="User" enableSelectByExample="false"
+            enableDeleteByExample="false" enableCountByExample="false" enableUpdateByExample="false">
+            <!--是否使用实际字段名作为实体字段，为false或者默认使用驼峰表示-->
+            <property name="useActualColumnNames" value="true" />
+        </table>
+        <table tableName="sys_dept" domainObjectName="Dept" enableSelectByExample="false"
+               enableDeleteByExample="false" enableCountByExample="false" enableUpdateByExample="false">
+            <property name="useActualColumnNames" value="true" />
+        </table>
+        <table tableName="sys_menu" domainObjectName="Menu" enableSelectByExample="false"
+               enableDeleteByExample="false" enableCountByExample="false" enableUpdateByExample="false">
+            <property name="useActualColumnNames" value="true" />
+        </table>
+        <table tableName="sys_permission" domainObjectName="Permission" enableSelectByExample="false"
+               enableDeleteByExample="false" enableCountByExample="false" enableUpdateByExample="false">
+            <property name="useActualColumnNames" value="true" />
+        </table>
+        <table tableName="sys_role" domainObjectName="Role" enableSelectByExample="false"
+               enableDeleteByExample="false" enableCountByExample="false" enableUpdateByExample="false">
+            <property name="useActualColumnNames" value="true" />
+        </table>
+        <table tableName="sys_role_menu" domainObjectName="RoleMenu" enableSelectByExample="false"
+               enableDeleteByExample="false" enableCountByExample="false" enableUpdateByExample="false">
+            <property name="useActualColumnNames" value="true" />
+        </table>
+        <table tableName="sys_role_permission" domainObjectName="RolePermission" enableSelectByExample="false"
+               enableDeleteByExample="false" enableCountByExample="false" enableUpdateByExample="false">
+            <property name="useActualColumnNames" value="true" />
+        </table>
+        <table tableName="sys_user_role" domainObjectName="UserRole" enableSelectByExample="false"
+               enableDeleteByExample="false" enableCountByExample="false" enableUpdateByExample="false">
+            <property name="useActualColumnNames" value="true" />
+        </table>
+    </context>
+</generatorConfiguration>

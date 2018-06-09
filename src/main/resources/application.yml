@@ -1,0 +1,23 @@
+
+mybatis:
+  mapper-locations: classpath:/mybatis/mapper/*.xml
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/sboot
+    username: root
+    password: 123456
+  thymeleaf:
+    cache: false
+server:
+  port: 8089
+
+#logging:
+#  level:
+#    #将mapper包下的日志最低级调整为debug,输出sql语句
+#    com.lkh.sboot.mapper: debug
+#分页插件
+pagehelper:
+  helper-dialect: mysql
+  #查询合理化，如果查询页码小于1，则按第一页查询，查询页码大于最后一页，则查询最后一页
+  reasonable: true

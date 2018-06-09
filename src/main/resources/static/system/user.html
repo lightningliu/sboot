@@ -1,0 +1,80 @@
+<div class="easyui-layout" data-options="fit:true">
+    <div data-options="region:'west',border:true,split:true," title="所属部门" style="width:150px; padding:5px;">
+        <ul id="user-dept-tree" class="easyui-tree"></ul>
+    </div>
+    <div data-options="region:'center',border:false">
+        <!-- Begin of toolbar -->
+        <div id="user-toolbar">
+            <div class="wu-toolbar-button">
+                <a href="javascript:void(0);" class="easyui-linkbutton" iconCls="icon-add" onclick="openAdd_user()" plain="true">添加</a>
+                <a href="javascript:void(0);" class="easyui-linkbutton" iconCls="icon-edit" onclick="openEdit_user()" plain="true">修改</a>
+                <a href="javascript:void(0);" class="easyui-linkbutton" iconCls="icon-remove" onclick="remove_user()" plain="true">删除</a>
+                <a href="javascript:void(0);" class="easyui-linkbutton" iconCls="icon-reload" onclick="reload_user()" plain="true">刷新</a>
+                <a href="javascript:alert('暂未开放');" class="easyui-linkbutton" iconCls="icon-print" plain="true">打印</a>
+            </div>
+            <div class="wu-toolbar-search">
+                <label>用户性别：</label>
+                <select class="easyui-combobox" panelHeight="auto" style="width:100px" id="search_user_sex">
+                    <option value="">--选择--</option>
+                    <option value="男">男</option>
+                    <option value="女">女</option>
+                </select>
+                <label>用户账号：</label><input class="wu-text" id="search_user_name" style="width:100px">
+                <label>用户姓名：</label><input class="wu-text" id="search_user_realname" style="width:100px">
+                <label>联系电话：</label><input class="wu-text" id="search_user_phone" style="width:100px">
+                <a href="javascript:void(0);" class="easyui-linkbutton" iconCls="icon-search" onclick="goSearch()">开始检索</a>
+            </div>
+        </div>
+        <!-- End of toolbar -->
+        <table id="user-datagrid" toolbar="#user-toolbar"></table>
+    </div>
+</div>
+<!-- Begin of easyui-dialog -->
+<div id="user-dialog" class="easyui-dialog" data-options="closed:true,iconCls:'icon-save'" style="width:400px; padding:10px;">
+    <form id="user-form" method="post">
+        <table>
+            <input type="hidden" name="user_id">
+            <tr>
+                <td width="60" align="right">用户账号:</td>
+                <td><input type="text" name="user_name" class="wu-text" /></td>
+            </tr>
+            <tr>
+                <td width="60" align="right">账号密码:</td>
+                <td><input type="password" name="user_pwd" class="wu-text" /></td>
+            </tr>
+            <tr>
+                <td width="60" align="right">用户角色:</td>
+                <td><input type="text" name="role_id" class="easyui-combobox wu-text" data-options="valueField:'role_id',textField:'role_name',method:'POST',url:'/userController/getRoleList'"/></td>
+            </tr>
+            <tr>
+                <td width="60" align="right">用户姓名:</td>
+                <td><input type="text" name="user_realname" class="wu-text" /></td>
+            </tr>
+            <tr>
+                <td width="60" align="right">性别:</td>
+                <td>
+<!--
+                    <input type="text" name="user_sex" class="wu-text" />
+-->
+                    <select class="easyui-combobox wu-text" name="user_sex"  panelHeight="auto" >
+                        <option value="男">男</option>
+                        <option value="女">女</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td width="60" align="right">联系电话:</td>
+                <td><input type="text" name="user_phone" class="wu-text" /></td>
+            </tr>
+            <tr>
+                <td align="right">所属部门:</td>
+                <td><input type="text" name="dept_id" id="dept_id" class="wu-text" /></td>
+            </tr>
+            <tr>
+                <td width="60" align="right">联系地址:</td>
+                <td><input type="text" name="user_addr" class="wu-text" /></td>
+            </tr>
+        </table>
+    </form>
+</div>
+<script type="text/javascript" src="/system/user.js"></script>

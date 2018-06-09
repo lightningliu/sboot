@@ -1,0 +1,74 @@
+<div  class="easyui-layout" id="layout" data-options="fit:true">
+    <!--<div data-options="region:'west',border:true,split:true," title="菜单管理" style="width:800px; padding:5px;">-->
+        <div data-options="region:'center',border:false" title="菜单管理">
+        <!-- Begin of toolbar -->
+        <div >
+            <div class="wu-toolbar-button">
+                <a href="javascript:void(0);" class="easyui-linkbutton" iconCls="icon-add" onclick="openMenuAdd()" plain="true">添加</a>
+                <a href="javascript:void(0);" class="easyui-linkbutton" iconCls="icon-edit" onclick="openMenuEdit()" plain="true">修改</a>
+                <a href="javascript:void(0);" class="easyui-linkbutton" iconCls="icon-remove" onclick="removeMenu()" plain="true">删除</a>
+                <a href="javascript:void(0);" class="easyui-linkbutton" iconCls="icon-reload" onclick="reloadMenu()" plain="true">刷新</a>
+            </div>
+        </div>
+        <!-- End of toolbar -->
+       <table id="lkh_menu" style="width:auto;"></table>
+    </div>
+    <!--<div data-options="region:'center',border:false">-->
+        <div data-options="region:'east',border:true,split:true,collapsed:true" title="权限管理" style="width:500px; padding:5px;">
+        <!-- Begin of toolbar -->
+        <div id="permission-toolbar">
+            <div class="wu-toolbar-button">
+                <a href="javascript:void(0);" class="easyui-linkbutton" iconCls="icon-add" onclick="openAdd_perm()" plain="true">添加</a>
+                <a href="javascript:void(0);" class="easyui-linkbutton" iconCls="icon-edit" onclick="openEdit_perm()" plain="true">修改</a>
+                <a href="javascript:void(0);" class="easyui-linkbutton" iconCls="icon-remove" onclick="remove_perm()" plain="true">删除</a>
+                <a href="javascript:void(0);" class="easyui-linkbutton" iconCls="icon-reload" onclick="reload_perm()" plain="true">刷新</a>
+            </div>
+        </div>
+        <!-- End of toolbar -->
+        <table id="lkh_permission_datagrid" toolbar="#permission-toolbar"></table>
+    </div>
+</div>
+<!-- Begin of easyui-dialog -->
+<div id="menu-dialog" class="easyui-dialog" data-options="closed:true,iconCls:'icon-save'" style="width:400px; padding:10px;">
+    <form id="menu-form" method="post">
+        <table>
+            <input name="menu_id" type="hidden">
+            <tr>
+                <td width="60" align="right">菜单名称:</td>
+                <td><input type="text" name="menu_name" class="wu-text" /></td>
+            </tr>
+            <tr>
+                <td align="right">菜单地址:</td>
+                <td><input type="text" name="menu_url" class="wu-text" /></td>
+            </tr>
+            <tr>
+                <td align="right">显示顺序:</td>
+                <td><input type="text" name="menu_order" class="wu-text" /></td>
+            </tr>
+            <tr>
+                <td align="right">上级菜单:</td>
+                <td><input type="text" name="parent_menu_id" id="menu_parent_id" class="wu-text" /></td>
+            </tr>
+        </table>
+    </form>
+</div>
+<!-- End of easyui-dialog -->
+
+
+<div id="perm-dialog" class="easyui-dialog" data-options="closed:true,iconCls:'icon-save'" style="width:400px; padding:10px;">
+    <form id="perm-form" method="post">
+        <table>
+            <input name="perm_id" type="hidden">
+            <input name="menu_id" type="hidden" id="menu_id">
+            <tr>
+                <td width="60" align="right">权限名称:</td>
+                <td><input type="text" name="perm_name" class="wu-text" /></td>
+            </tr>
+            <tr>
+                <td align="right">权限标记:</td>
+                <td><input type="text" name="perm_flag" class="wu-text" /></td>
+            </tr>
+        </table>
+    </form>
+</div>
+<script type="text/javascript" src="/system/menu.js"></script>

@@ -1,0 +1,45 @@
+<div  class="easyui-layout" id="role_layout" data-options="fit:true">
+        <div data-options="region:'center',border:false" title="角色管理">
+            <!-- Begin of toolbar -->
+            <div id="role_toolbar">
+                <div class="wu-toolbar-button">
+                    <a href="javascript:void(0);" class="easyui-linkbutton" iconCls="icon-add" onclick="openAdd_role()" plain="true">添加</a>
+                    <a href="javascript:void(0);" class="easyui-linkbutton" iconCls="icon-edit" onclick="openEdit_role()" plain="true">修改</a>
+                    <a href="javascript:void(0);" class="easyui-linkbutton" iconCls="icon-remove" onclick="remove_role()" plain="true">删除</a>
+                    <a href="javascript:void(0);" class="easyui-linkbutton" iconCls="icon-reload" onclick="reload_role()" plain="true">刷新</a>
+                </div>
+            </div>
+            <!-- End of toolbar -->
+            <table id="role_datagrid" toolbar="#role_toolbar"></table>
+    </div>
+    <!--<div data-options="region:'center',border:false">-->
+    <div data-options="region:'east',border:true,split:true,collapsed:true" title="权限管理" style="width:500px; padding:5px;">
+        <div >
+            <div class="wu-toolbar-button">
+                <a href="#" class="easyui-linkbutton" iconCls="icon-save" onclick="save_permission()" plain="true">保存</a>
+                <a href="javascript:void(0);" class="easyui-linkbutton" iconCls="icon-add" onclick="openAdd()" plain="true">全选</a>
+                <a href="javascript:void(0);" class="easyui-linkbutton" iconCls="icon-remove" onclick="removeMenu()" plain="true">全不选</a>
+                <a href="javascript:void(0);" class="easyui-linkbutton" iconCls="icon-reload" onclick="reload_permission()" plain="true">刷新</a>
+            </div>
+        </div>
+        <ul id="role_permission_tree" class="easyui-tree"></ul>
+
+    </div>
+</div>
+
+<div id="role_dialog" class="easyui-dialog" data-options="closed:true,iconCls:'icon-save'" style="width:400px; padding:10px;">
+    <form id="role_form" method="post">
+        <table>
+            <input name="role_id" type="hidden">
+            <tr>
+                <td width="60" align="right">角色名称:</td>
+                <td><input type="text" name="role_name" class="wu-text" /></td>
+            </tr>
+            <tr>
+                <td valign="top" align="right">角色备注:</td>
+                <td><textarea name="role_note" rows="6" class="wu-textarea" style="width:260px"></textarea></td>
+            </tr>
+        </table>
+    </form>
+</div>
+<script type="text/javascript" src="/system/role.js"></script>
